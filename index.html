@@ -149,6 +149,7 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
+/* fuck this is so hacky */
 .project a, a {
     color: #fff;
     text-decoration: none;
@@ -159,17 +160,38 @@ h1, h2, h3 {
     border-bottom: 1px solid #fff;
 }
 
-.socials a, .socials a:hover {
+.socials a, .socials a:hover, .welcome a, .welcome a:hover {
 	border-bottom: 1px solid rgba(255,255,255,0);
     text-decoration: none;
 }
 
+/* my timezone */
+.time {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+
+    padding: 3px 8px;
+    border-radius: 8px;
+
+    font-family: ui-monospace, monospace;
+    font-size: 0.85rem;
+
+    letter-spacing: 0.5px;
+}
+
 /* mention */
 .mention {
-    background: rgba(145, 145, 145, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
     padding: 2px 6px;
     border-radius: 6px;
+}
+
+.flag {
+	height: 50%;
+	max-width: 40px;
+	max-height: 40px;
 }
 
 </style>
@@ -207,11 +229,20 @@ h1, h2, h3 {
 <div class="container">
 
     <h1>lex</h1>
-    <p class="secret">he/him • en_gb</p>
+	<p class="secret">
+		he/him • en_gb
+	</p>
     <p class="tagline">
         programmer • <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">unity C#</a> • <a href="https://en.wikipedia.org/wiki/Luau_(programming_language)">roblox Luau</a> • content creator
     </p>
-
+	
+	<p class="welcome">
+		my current local time:
+		<a href="https://www.timeanddate.com/worldclock/uk/london">
+			<time id="clock" class="time"></time>
+		</a><br>
+		welcome to my portfolio :D
+	</p>
     <div class="separator"></div>
 
     <h2>// about me</h2>
@@ -289,6 +320,23 @@ window.addEventListener("load", () => {
         intro.remove();
     }, 5800);
 });
+
+function updateClock() {
+    const now = new Date();
+
+    const options = {
+        timeZone: "Europe/London",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    };
+
+    const formatted = new Intl.DateTimeFormat("en-GB", options).format(now);
+    document.getElementById("clock").textContent = formatted;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
 </script>
 </body>
 </html>

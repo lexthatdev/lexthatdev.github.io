@@ -8,6 +8,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 
+.intro {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+.code-panel {
+    position: absolute;
+    left: 40px;
+    top: 200%;
+    transform: translateY(-50%);
+
+    width: 100%;
+    height: 200%;
+
+    overflow: hidden;
+
+    font-family: ui-monospace, monospace;
+    font-size: 0.72rem;
+    color: #ffffff77;
+
+    line-height: 1.4;
+    white-space: pre-wrap;
+
+    padding-left: 12px;
+
+    transition: transform 0.2s linear;
+}
+
+/* logo image */
+.logo {
+    width: 420px; /* scale from 940x320 */
+    opacity: 0;
+    transform: scale(0.98);
+    animation: logoFade 5s ease forwards;
+}
+
+/* animation timing */
+@keyframes logoFade {
+    0% { opacity: 0; }
+    40% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.02); }
+}
+
+.letter {
+    animation: textFade 5s ease forwards;
+}
+
+@keyframes textFade {
+    0% { opacity: 1; font-size: 1rem; }
+    80% { opacity: 1; }
+    100% { opacity: 0; font-size: 1.2rem; }
+}
+
+/* whole intro fade out */
+.intro.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -17,6 +85,7 @@ body {
 
 /* background */
 .bg {
+
     position: fixed;
     top: 0;
     left: 0;
@@ -24,7 +93,7 @@ body {
     height: 100%;
     z-index: 0;
 
-    background-image: url('background_inv.jpg');
+    background-image: url('channelbannerexp.png');
     background-size: cover;
 }
 
@@ -32,34 +101,49 @@ body {
 .container {
     position: relative;
     z-index: 2;
+    
     max-width: 800px;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 20px;
 }
 
 /* hero */
 h1 {
-    font-family: 'Finger Paint';
     font-size: 3rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Finger Paint';
     margin: 0;
 }
 
 .tagline {
-    opacity: 0.7;
+    opacity: 0.8;
+    font-size: 1.5rem;
     margin-top: 10px;
+}
+
+.secret {
+    font-size: 1rem;
+    opacity: 0.2;
 }
 
 /* separator */
 .separator {
     width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    height: 3px;
+    border-radius: 30%;
+    background: linear-gradient(to right, rgba(255,255,255,1), transparent);
     margin: 30px 0;
 }
 
 /* projects */
 .project {
     margin-bottom: 20px;
+}
+
+a, .p a:hover {
+    text-decoration: none;
 }
 
 .project a {
@@ -74,8 +158,8 @@ h1 {
 
 /* mention */
 .mention {
-    background: rgba(88, 101, 242, 0.2);
-    color: #5865f2;
+    background: rgba(145, 145, 145, 0.2);
+    color: #ffffff;
     padding: 2px 6px;
     border-radius: 6px;
 }
@@ -83,38 +167,201 @@ h1 {
 </head>
 
 <body>
+<div class="intro" id="intro">
+    <div class="code-panel">
+        <pre id="code"></pre>
+    </div>
+
+    <img class="logo" src="lexthedevies.png" alt="lex logo">
+
+    <div class="logo-text">
+        <span class="letter">l</span>
+        <span class="letter">e</span>
+        <span class="letter">x</span>
+        <span class="letter">'</span>
+        <span class="letter">s</span>
+        <span class="letter">⠀</span>
+        <span class="letter">p</span>
+        <span class="letter">o</span>
+        <span class="letter">r</span>
+        <span class="letter">t</span>
+        <span class="letter">f</span>
+        <span class="letter">o</span>
+        <span class="letter">l</span>
+        <span class="letter">i</span>
+        <span class="letter">o</span>
+    </div>
+</div>
+
 <div class="bg"></div>
 
 <div class="container">
 
     <h1>lex</h1>
-    <p class="tagline">programmer • roblox dev • discord bots • things that break and get fixed later</p>
+    <p class="secret">he/him • en_gb</p>
+    <p class="tagline">
+        programmer • unity C# • roblox Luau • content creator
+    </p>
 
     <div class="separator"></div>
 
-    <h2>projects</h2>
+    <h2>// about me</h2>
+    <p>
+        i'm lex, a british teenager who tries his best when it comes to programming, content creation, music composing, all that good stuff. as of may 2026, i'm studying for my GCSEs here in the UK, all the while i'm trying to maintain the little fanbase (1.3k subscribers on YouTube) that i have &lt;3<br><br>
 
+        i'm crazy for videogames, i LOVE resident evil, half life, devil may cry, alien isolation, rdr2 — you can see more games that i enjoy on my discord profile!<br><br>
+
+        in programming terms, i'm learning C#, java, javascript, luau, and html & css!<br>
+        i know a decent amount of Python, but it's nothing to earn me a backend job in the foreseeable future
+    </p>
+
+    <div class="separator"></div>
+
+    <h2>// projects</h2>
+    <h3>[.py] python</h3>
     <div class="project">
-        <a href="#">wwoyhs bot</a> — discord moderation + tools bot
+        <a href="https://github.com/lexthatdev/pyrhythm">pyrhythm</a> — a (now scrapped) rhythm game made purely in python
     </div>
 
+    <h3>[.js] javascript</h3>
     <div class="project">
+        <a href="https://lexthatdev.github.io/wwoyhs-docs">wwoyhs bot</a> — discord moderation + tools bot<br>
         <a href="#">xel bot</a> — discord moderation + tools bot
     </div>
 
+    <h3>[.j] java</h3>
     <div class="project">
-        <a href="#">minecraft bob mod</a> — experimental npc mod
+        <a href="https://www.curseforge.com/minecraft/mc-mods/the-silly-bob">minecraft bob mod</a> — experimental npc mod<br>
+        <a href="https://www.curseforge.com/minecraft/texture-packs/gubby-bunny">gubby texture pack</a> — my first 'mod' for minecraft
     </div>
 
     <div class="separator"></div>
 
-    <h2>links</h2>
+    <h2>// socials</h2>
 
     <p>
-        github: <span class="mention">@lexthatdev</span><br>
-        discord: <span class="mention">@lex</span>
+        youtube: <a href="https://www.youtube.com/@indentitea"><span class="mention">@indentitea</span></a><br>
+        steam:   <a href="https://steamcommunity.com/id/lexiguess/"><span class="mention">@lex</span></a><br>
+        github:  <a href="https://github.com/lexthatdev/"><span class="mention">@lexthatdev</span></a><br>
+        discord: <a href="https://discord.com/users/626451631806087198"><span class="mention">@_program_lex</span></a><br>
+        patreon: <a href="https://www.patreon.com/cw/lexthatdev"><span class="mention">@lexthatdev</span></a><br>
+        spotify: <a href="https://open.spotify.com/artist/5E2WklGUOotIh1LnIZSY0z"><span class="mention">@lexthedev</span></a>
     </p>
 
 </div>
+
+<script>
+const codeLines = [
+    "// ====================================",
+    "// devies portfolio runtime v1.0",
+    "// initializing system...",
+    "// ====================================",
+    "",
+    "const env = process.env.NODE_ENV || 'production';",
+    "console.log('environment:', env);",
+    "",
+    "// core user profile",
+    "const user = {",
+    "  name: 'lex',",
+    "  location: 'uk',",
+    "  status: 'probably debugging something',",
+    "  skills: ['c#', 'java', 'luau', 'javascript', 'html', 'css'],",
+    "};",
+    "",
+    "// module loader",
+    "const loadModule = async (name) => {",
+    "  return new Promise(resolve => {",
+    "    setTimeout(() => {",
+    "      console.log(`loaded module: ${name}`);",
+    "      resolve({ name, status: 'ok' });",
+    "    }, Math.random() * 300);",
+    "  });",
+    "};",
+    "",
+    "// project system",
+    "const projects = [",
+    "  'wwoyhs-bot',",
+    "  'xel-bot',",
+    "  'minecraft-bob-mod',",
+    "  'pyrhythm',",
+    "];",
+    "",
+    "const loadProjects = async () => {",
+    "  const loaded = [];",
+    "",
+    "  for (const p of projects) {",
+    "    const module = await loadModule(p);",
+    "    loaded.push(module);",
+    "  }",
+    "",
+    "  return loaded;",
+    "};",
+    "",
+    "// ui bootstrap",
+    "const initUI = () => {",
+    "  console.log('rendering components...');",
+    "  console.log('applying theme: minimal-black');",
+    "  console.log('binding events...');",
+    "  console.log('optimising animations...');",
+    "};",
+    "",
+    "// startup sequence",
+    "(async () => {",
+    "  console.log('boot sequence started');",
+    "",
+    "  const modules = await Promise.all([",
+    "    loadModule('ui'),",
+    "    loadModule('animations'),",
+    "    loadModule('routing')",
+    "  ]);",
+    "",
+    "  console.log('core modules loaded:', modules.length);",
+    "",
+    "  const projectData = await loadProjects();",
+    "  console.log('projects loaded:', projectData.length);",
+    "",
+    "  initUI();",
+    "",
+    "  console.log('status: ready');",
+    "})();",
+    "",
+    "// build complete ✔"
+];
+
+const codeEl = document.getElementById("code");
+const panel = document.querySelector(".code-panel");
+
+let i = 0;
+let offset = 0;
+
+function typeLine() {
+    if (i >= codeLines.length) return;
+
+    codeEl.innerText += codeLines[i] + "\n";
+    i++;
+
+    offset += 14;
+
+    panel.style.transform = `translateY(calc(-50% - ${offset}px))`;
+
+    setTimeout(typeLine, 80);
+}
+
+
+window.addEventListener("load", () => {
+    const intro = document.getElementById("intro");
+    typeLine();
+
+    // fade everything out together
+    setTimeout(() => {
+        intro.classList.add("fade-out");
+    }, 5000);
+
+    // remove from DOM
+    setTimeout(() => {
+        intro.remove();
+    }, 5800);
+});
+</script>
 </body>
 </html>

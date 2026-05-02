@@ -147,7 +147,7 @@ a, .p a:hover {
 }
 
 .project a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
     border-bottom: 1px solid rgba(255,255,255,0.3);
 }
@@ -248,109 +248,21 @@ a, .p a:hover {
         spotify: <a href="https://open.spotify.com/artist/5E2WklGUOotIh1LnIZSY0z"><span class="mention">@lexthedev</span></a>
     </p>
 
+    <div class="separator"></div>
+    <h2>// music i enjoy</h2>
+
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/52TY7DqPJ32GNAe8Msd3fz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <br>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1NCOti9JXhIgrtpXEkaA3o?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <br>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4gbVRS8gloEluzf0GzDOFc?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <br>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4tiJkpSf5tLj7NOC99tAfx?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
 
 <script>
-const codeLines = [
-    "// ====================================",
-    "// devies portfolio runtime v1.0",
-    "// initializing system...",
-    "// ====================================",
-    "",
-    "const env = process.env.NODE_ENV || 'production';",
-    "console.log('environment:', env);",
-    "",
-    "// core user profile",
-    "const user = {",
-    "  name: 'lex',",
-    "  location: 'uk',",
-    "  status: 'probably debugging something',",
-    "  skills: ['c#', 'java', 'luau', 'javascript', 'html', 'css'],",
-    "};",
-    "",
-    "// module loader",
-    "const loadModule = async (name) => {",
-    "  return new Promise(resolve => {",
-    "    setTimeout(() => {",
-    "      console.log(`loaded module: ${name}`);",
-    "      resolve({ name, status: 'ok' });",
-    "    }, Math.random() * 300);",
-    "  });",
-    "};",
-    "",
-    "// project system",
-    "const projects = [",
-    "  'wwoyhs-bot',",
-    "  'xel-bot',",
-    "  'minecraft-bob-mod',",
-    "  'pyrhythm',",
-    "];",
-    "",
-    "const loadProjects = async () => {",
-    "  const loaded = [];",
-    "",
-    "  for (const p of projects) {",
-    "    const module = await loadModule(p);",
-    "    loaded.push(module);",
-    "  }",
-    "",
-    "  return loaded;",
-    "};",
-    "",
-    "// ui bootstrap",
-    "const initUI = () => {",
-    "  console.log('rendering components...');",
-    "  console.log('applying theme: minimal-black');",
-    "  console.log('binding events...');",
-    "  console.log('optimising animations...');",
-    "};",
-    "",
-    "// startup sequence",
-    "(async () => {",
-    "  console.log('boot sequence started');",
-    "",
-    "  const modules = await Promise.all([",
-    "    loadModule('ui'),",
-    "    loadModule('animations'),",
-    "    loadModule('routing')",
-    "  ]);",
-    "",
-    "  console.log('core modules loaded:', modules.length);",
-    "",
-    "  const projectData = await loadProjects();",
-    "  console.log('projects loaded:', projectData.length);",
-    "",
-    "  initUI();",
-    "",
-    "  console.log('status: ready');",
-    "})();",
-    "",
-    "// build complete ✔"
-];
-
-const codeEl = document.getElementById("code");
-const panel = document.querySelector(".code-panel");
-
-let i = 0;
-let offset = 0;
-
-function typeLine() {
-    if (i >= codeLines.length) return;
-
-    codeEl.innerText += codeLines[i] + "\n";
-    i++;
-
-    offset += 14;
-
-    panel.style.transform = `translateY(calc(-50% - ${offset}px))`;
-
-    setTimeout(typeLine, 80);
-}
-
-
 window.addEventListener("load", () => {
     const intro = document.getElementById("intro");
-    typeLine();
 
     // fade everything out together
     setTimeout(() => {

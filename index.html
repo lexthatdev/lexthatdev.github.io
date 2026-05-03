@@ -11,6 +11,7 @@
 
 .intro {
     position: fixed;
+
     inset: 0;
     background: #000;
     display: flex;
@@ -21,27 +22,18 @@
     z-index: 999;
 }
 
-.code-panel {
-    position: absolute;
-    left: 40px;
-    top: 200%;
-    transform: translateY(-50%);
+.loading {
+    opacity: 0.1;
+    font-size: 0.3rem;
+    animation: loadingFade 7s ease forwards;
+}
 
-    width: 100%;
-    height: 200%;
+@keyframes loadingFade {
+    0% { opacity: 0; font-size: 0.9rem; }
+    10% { opacity: 0.1; }
+    80% { opacity: 0.1; }
+    100% { opacity: 0; font-size: 1.3rem;  }
 
-    overflow: hidden;
-
-    font-family: ui-monospace, monospace;
-    font-size: 0.72rem;
-    color: #ffffff77;
-
-    line-height: 1.4;
-    white-space: pre-wrap;
-
-    padding-left: 12px;
-
-    transition: transform 0.2s linear;
 }
 
 /* logo image */
@@ -52,16 +44,16 @@
     animation: logoFade 5s ease forwards;
 }
 
+.logo-text {
+    animation: textFade 6s ease forwards;
+}
+
 /* animation timing */
 @keyframes logoFade {
     0% { opacity: 0; }
     40% { opacity: 1; transform: scale(1); }
     80% { opacity: 1; }
     100% { opacity: 0; transform: scale(1.02); }
-}
-
-.letter {
-    animation: textFade 5s ease forwards;
 }
 
 @keyframes textFade {
@@ -206,22 +198,9 @@ h1, h2, h3 {
 
     <img class="logo" src="lexthedevies.png" alt="lex logo">
 
-    <div class="logo-text">
-        <span class="letter">l</span>
-        <span class="letter">e</span>
-        <span class="letter">x</span>
-        <span class="letter">'</span>
-        <span class="letter">s</span>
-        <span class="letter">⠀</span>
-        <span class="letter">p</span>
-        <span class="letter">o</span>
-        <span class="letter">r</span>
-        <span class="letter">t</span>
-        <span class="letter">f</span>
-        <span class="letter">o</span>
-        <span class="letter">l</span>
-        <span class="letter">i</span>
-        <span class="letter">o</span>
+    <div class="logo-text">l⠀e⠀x⠀'⠀s⠀⠀p⠀o⠀r⠀t⠀f⠀o⠀l⠀i⠀o</div> <br>
+    <div class="loading">
+        <div class="loading-text">l o a d i n g . . .</div>
     </div>
 </div>
 
@@ -314,12 +293,12 @@ window.addEventListener("load", () => {
     // fade everything out together
     setTimeout(() => {
         intro.classList.add("fade-out");
-    }, 5000);
+    }, 7500);
 
     // remove from DOM
     setTimeout(() => {
         intro.remove();
-    }, 5800);
+    }, 8500);
 });
 
 function updateClock() {
